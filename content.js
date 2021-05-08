@@ -23,6 +23,25 @@
 //   console.log("extention", "loaded");
 
 // });
+
+// function
+
+
+
+
+
+
+function print(x)  {
+  console.log("extention", x);
+}
+
+// $(document).
+
+print($("div span"));
+
+
+
+
 function firstC(node) {
   return node.childNodes[0];
 }
@@ -32,20 +51,88 @@ function firstCN(node, n) {
   }
   return node;
 }
-var interval = setInterval(function() { 
-  if (document.getElementsByTagName("main")[0] !== undefined) { 
-    console.log("extention", "loaded2");
-    const ft = document.getElementsByTagName("main")[0];
-    console.log("extention", ft);
-    console.log("extention", firstCN(ft, 3));
+var t = 0;
 
-     clearInterval(interval);
-  }
-  else { 
-    console.log("extention", "not loaded2");
+var posts = [];
 
-  }
-}, 5);
+function processPost(elem)  {
+  posts.push(elem);
+let f = $(elem).find("[lang]");
+  var txt = $(f).text();
+
+
+  const data = [txt];
+console.log("")
+fetch('https://l73c8hedzd.execute-api.us-west-2.amazonaws.com/getSentiments', {
+  method: 'POST', // or 'PUT'
+  // mode: 'cors',
+  headers: {
+    'Content-Type': 'text/plain',
+  },
+  body: JSON.stringify(data),
+})
+.then(response => response.json())
+.then(data => {
+  console.log("extention", 'Success:', data);
+})
+.catch((error) => {
+  console.error( 'Error:', error);
+});
+
+
+  
+}
+
+
+
+
+function nodeInsertedCallback(event) {
+  let elem = event.target;
+  let p = $(elem).parent().parent().parent();
+  var attr = $(p).attr('role');
+
+// For some browsers, `attr` is undefined; for others,
+// `attr` is false.  Check for both.
+if (typeof attr !== 'undefined' && attr !== false) {
+    if (attr == "region") {
+      processPost(elem);
+    }
+}
+};
+document.addEventListener('DOMNodeInserted', nodeInsertedCallback);
+function checkIfPost(elem)  {
+
+}
+
+
+// var interval = setInterval(function() { 
+//   t++;
+//   print("in here "+ t);
+//   if (t%5==0)  {
+//     var d = 	$("[tabindex='0']");
+//     print(d);
+//     for (var i = 0;i < d.length; i++) {
+//       print(d[i]);
+//     }
+
+//     // clearInterval(interval);
+//   }
+
+// }, 1000);
+
+  // if (document.getElementsByTagName("main")[0] !== undefined) { 
+  //   console.log("extention", "loaded2");
+  //   const ft = document.getElementsByTagName("main")[0];
+  //   console.log("extention", ft);
+  //   console.log("extention", firstCN(ft, 3));
+
+  //    clearInterval(interval);
+  // }
+  // else { 
+    // console.log("extention", "not loaded2");
+// 
+  // }
+
 
 // while(document.getElementsByTagName("main")[0] === undefined) {
 //   // if () {
