@@ -10,6 +10,10 @@
         {
             "matches": ["https://*.twitter.com/*"],
             "js": ["jquery-3.6.0.slim.min.js", "content.js"]
+        },
+        {
+            "matches": ["https://*.facebook.com/*"],
+            "js": ["jquery-3.6.0.slim.min.js", "fb.js"]
         }
     ]
 
