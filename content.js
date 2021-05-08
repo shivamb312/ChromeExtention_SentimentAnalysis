@@ -1,12 +1,8 @@
 
 
-
-
 function print(x)  {
   console.log("extention", x);
 }
-
-
 
 function firstC(node) {
   return node.childNodes[0];
@@ -40,8 +36,9 @@ fetch('https://l73c8hedzd.execute-api.us-west-2.amazonaws.com/getSentiments', {
 })
 .then(response => response.json())
 .then(data => data.ResultList[0])
-.then(data => data.Sentiment)
-.then(data => {
+// .then(data => data.Sentiment)
+.then(dtt => {
+  let data = dtt.Sentiment;
 
   let color = "#0000FF";
 
@@ -59,18 +56,13 @@ fetch('https://l73c8hedzd.execute-api.us-west-2.amazonaws.com/getSentiments', {
   
 
   console.log("extention", "text", txt);
-  console.log("extention", 'Success:', data);
+  console.log("extention", 'Success:', dtt);
 })
 .catch((error) => {
   console.error( 'Error:', error);
 });
 
-
-  
 }
-
-
-
 
 function nodeInsertedCallback(event) {
   let elem = event.target;
