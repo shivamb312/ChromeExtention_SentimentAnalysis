@@ -1,16 +1,15 @@
-
 {
-  "name": "Chrome-Extension-SentimentAnalysis",
-  "version": "1.0",
-  "manifest_version": 2,
-  "content_scripts": [
-      {
-          "matches": ["https://www.facebook.com/"],
-          "js": ["content.js"]
-      }
-  ],
-  "browser_action": {
-      "default_popup": "popup.html",
-      "defaut_title": "ActivateSentimentAnalysis"
-  }
+    "name": "Chrome-Extension-SentimentAnalysis",
+    "version": "1.0",
+    "manifest_version": 2,
+    "content_scripts": [
+        {
+            "matches": ["https://*.twitter.com/*"],
+            "js": ["content.js"]
+        }
+    ],
+    "browser_action": {
+        "default_popup": "popup.html",
+        "defaut_title": "ActivateSentimentAnalysis"
+    }
 }
