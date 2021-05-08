@@ -1,15 +1,16 @@
 {
+    
     "name": "Chrome-Extension-SentimentAnalysis",
+    "host_permissions": [
+        "*://*.amazonaws.com/*"
+      ],
     "version": "1.0",
-    "manifest_version": 2,
+    "manifest_version": 3,
     "content_scripts": [
         {
             "matches": ["https://*.twitter.com/*"],
-            "js": ["content.js"]
+            "js": ["jquery-3.6.0.slim.min.js", "content.js"]
         }
-    ],
-    "browser_action": {
-        "default_popup": "popup.html",
-        "defaut_title": "ActivateSentimentAnalysis"
-    }
+    ]
+
 }
