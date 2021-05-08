@@ -59,10 +59,12 @@ function processPost(elem)  {
   posts.push(elem);
 let f = $(elem).find("[lang]");
   var txt = $(f).text();
-
+  if (txt.length < 5) {
+    return;
+  }
 
   const data = [txt];
-console.log("")
+// console.log("")
 fetch('https://l73c8hedzd.execute-api.us-west-2.amazonaws.com/getSentiments', {
   method: 'POST', // or 'PUT'
   // mode: 'cors',
@@ -72,7 +74,26 @@ fetch('https://l73c8hedzd.execute-api.us-west-2.amazonaws.com/getSentiments', {
   body: JSON.stringify(data),
 })
 .then(response => response.json())
+.then(data => data.ResultList[0])
+.then(data => data.Sentiment)
 .then(data => {
+
+  let color = "#0000FF";
+
+  if (data == "POSITIVE") {
+    color = "#00FF00";
+  }
+  else if (data == "NEGATIVE")  {
+    color = "#FF0000";
+  }
+  $(elem).css({
+    "border-color": color,
+    "border-width": "2px",
+    "border-style": "solid"
+  });
+  
+
+  console.log("extention", "text", txt);
   console.log("extention", 'Success:', data);
 })
 .catch((error) => {
