@@ -21,7 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function Toggled()  {
     console.log("Toggled");
-   var value =  document.getElementById('switch').checked;
+    let toggleWarning = document.getElementById('warning');
+    toggleWarning.innerText = "Refresh the page now to see changes!";
+    var value =  document.getElementById('switch').checked;
     
     chrome.storage.local.set({on: value}, function() {
         console.log('Value is set to ' + value);
@@ -29,5 +31,4 @@ function Toggled()  {
     
 
     // console.log(ev);
-
 }
