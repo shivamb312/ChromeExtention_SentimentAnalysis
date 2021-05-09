@@ -17,7 +17,10 @@
         },
         {
             "matches": ["https://*.facebook.com/*"],
-            "js": ["jquery-3.6.0.slim.min.js", "fb.js"]
+            "js": ["jquery-3.6.0.slim.min.js", "fb.js"],
+            "css": [
+                "content.css"
+            ]
         }
     ],
     "action": {

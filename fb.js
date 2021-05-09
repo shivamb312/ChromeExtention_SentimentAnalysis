@@ -20,7 +20,8 @@ var posts = [];
 function processPost(elem)  {
   // posts.push(elem);
 let f = $(elem).find("[data-ad-preview='message']")[0];
-// print(f[0]);
+print(f);
+
 // return;
   var txt = $(f).text();
 
@@ -50,13 +51,14 @@ fetch('https://l73c8hedzd.execute-api.us-west-2.amazonaws.com/getSentiments', {
     color = "#00FF00";
   }
   else if (data == "NEGATIVE")  {
+    $(f).find("span").addClass("flagged");
     color = "#FF0000";
   }
-  $(elemBor).css({
-    "border-color": color,
-    "border-width": "2px",
-    "border-style": "solid"
-  });
+  // $(elemBor).css({
+  //   "border-color": color,
+  //   "border-width": "2px",
+  //   "border-style": "solid"
+  // });
   
 
   console.log("extention", "text", txt);

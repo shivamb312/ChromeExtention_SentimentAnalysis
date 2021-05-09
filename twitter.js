@@ -32,10 +32,10 @@ async function processPost(elem)  {
   posts.push(elem);
 let f = $(elem).find("[lang]");
   var txt = $(f).text();
-  if (txt.length < 5) {
+  if (txt.length < 5 || !$(f).is(":visible") ) {
     return;
   }
-
+console.log($(elem).height());
 // .then(data => data.Sentiment)
 getSentiment(txt)
 .then(dtt => {
@@ -52,8 +52,8 @@ getSentiment(txt)
   }
   console.log( );
   // elem.appendChild(createButtonElement());
-  const imgUrl = (chrome.runtime.getURL('img/logo.png'));
-  // const sp = $("<span>", {id: idx, "class": "aus"});
+  // const imgUrl = (chrome.runtime.getURL('img/logo.png'));
+  // const sp = $("<div>", {id: idx, "class": "aus"});
   // const link = $("<a>").append(sp);
 
 
@@ -67,8 +67,10 @@ getSentiment(txt)
   // const img = $("<img> </img>");
   // img.attr('src', "imgUrl");
   // sp.append(img);
-  // $(f[0]).parent().append(sp);
-
+  // $(elem).append(sp);
+  // $("#"+idx).click( function(data)  {
+  //   console.log(txt);
+  // });
   // $( "a" ).on( "click",".aus", function(e) {
   //   console.log( $( this ) );
   //   // e.stopPropagation();
@@ -133,6 +135,9 @@ function nodeInsertedCallback(event) {
 // `attr` is false.  Check for both.
 
 };
+
+
+
 document.addEventListener('DOMNodeInserted', nodeInsertedCallback);
 function checkIfPost(elem)  {
 
