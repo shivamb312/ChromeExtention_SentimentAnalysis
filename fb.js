@@ -49,6 +49,8 @@ fetch('https://l73c8hedzd.execute-api.us-west-2.amazonaws.com/getSentiments', {
 
   if (data == "POSITIVE") {
     color = "#00FF00";
+    $(f).find("span").addClass("greenc ");
+
   }
   else if (data == "NEGATIVE")  {
     $(f).find("span").addClass("flagged");
