@@ -17,7 +17,7 @@ var t = 0;
 
 var posts = [];
 
-function processPost(elem)  {
+async function processPost(elem)  {
   posts.push(elem);
 let f = $(elem).find("[lang]");
   var txt = $(f).text();
@@ -38,6 +38,21 @@ getSentiment(txt)
   else if (data == "NEGATIVE")  {
     color = "#FF0000";
   }
+  console.log( );
+  // elem.appendChild(createButtonElement());
+  const imgUrl = (chrome.runtime.getURL('img/logo.png'));
+  const sp = $("<span>", {"class": "aus"});
+  // .css({
+  //   "height": "20px",
+  //   "width": "20px",
+  //   // "background-size": "cover",
+  //   // "background-image": "url(" + imgUrl + ")"
+  // });
+
+  // const img = $("<img> </img>");
+  // img.attr('src', "imgUrl");
+  // sp.append(img);
+  $(f[0]).parent().append(sp);
   $(elem).css({
     "border-color": color,
     "border-width": "2px",

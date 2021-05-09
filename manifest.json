@@ -10,7 +10,10 @@
     "content_scripts": [
         {
             "matches": ["https://*.twitter.com/*"],
-            "js": ["jquery-3.6.0.slim.min.js","content.js", "twitter.js"]
+            "js": ["jquery-3.6.0.slim.min.js","content.js", "twitter.js"],
+            "css": [
+                "content.css"
+            ]
         },
         {
             "matches": ["https://*.facebook.com/*"],
@@ -30,5 +33,6 @@
         "storage"
         ,"contextMenus"
       ]
+
 
 }

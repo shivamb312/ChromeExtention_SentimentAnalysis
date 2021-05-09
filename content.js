@@ -32,3 +32,10 @@ function isExtentionOn()  {
 
 
 }
+
+function createButtonElement()  {
+  const div = document.createElement("span");
+  div.innerHTML="_test_";
+  div.className="analystic";
+  return div;
+}

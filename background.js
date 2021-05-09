@@ -1,6 +1,6 @@
 
 chrome.runtime.onInstalled.addListener(function() {
-  console.log("fads");
+  // console.log("fads");
 
   let value = true;
   chrome.storage.local.set({on: value}, function() {
