@@ -14,3 +14,21 @@ function getSentiment(txt) {
     .catch(e => reject(e));
   });
 }
+
+
+function isExtentionOn()  {
+
+  return new Promise(function(resolve, reject) {
+    
+    chrome.storage.local.get(['on'], function(result) {
+      console.log('Value currently is ' + result.on);
+      // document.getElementById('switch').checked = result.on;
+      resolve(result.on);
+    });
+
+
+
+  });
+
+
+}

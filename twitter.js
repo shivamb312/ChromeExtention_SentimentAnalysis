@@ -55,17 +55,32 @@ getSentiment(txt)
 }
 
 function nodeInsertedCallback(event) {
-  let elem = event.target;
-  let p = $(elem).parent().parent().parent();
-  var attr = $(p).attr('role');
+
+  isExtentionOn()
+  .then(on => {
+    console.log("Here");
+    console.log(on);
+    if (on) {
+      let elem = event.target;
+      let p = $(elem).parent().parent().parent();
+      var attr = $(p).attr('role');
+      if (typeof attr !== 'undefined' && attr !== false) {
+        if (attr == "region") {
+          
+          processPost(elem);
+        }
+    }
+    }
+  })
+  .catch(e => {
+    console.log(e);
+  }); 
+
+
 
 // For some browsers, `attr` is undefined; for others,
 // `attr` is false.  Check for both.
-if (typeof attr !== 'undefined' && attr !== false) {
-    if (attr == "region") {
-      processPost(elem);
-    }
-}
+
 };
 document.addEventListener('DOMNodeInserted', nodeInsertedCallback);
 function checkIfPost(elem)  {
