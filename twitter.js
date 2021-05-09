@@ -16,6 +16,17 @@ function firstCN(node, n) {
 var t = 0;
 
 var posts = [];
+function makeid(length) {
+  var result           = [];
+  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  var charactersLength = characters.length;
+  for ( var i = 0; i < length; i++ ) {
+    result.push(characters.charAt(Math.floor(Math.random() * 
+charactersLength)));
+ }
+ return result.join('');
+}
+
 
 async function processPost(elem)  {
   posts.push(elem);
@@ -31,17 +42,21 @@ getSentiment(txt)
   let data = dtt.Sentiment;
 
   let color = "#0000FF";
-
+  let idx = makeid(7);
   if (data == "POSITIVE") {
     color = "#00FF00";
   }
   else if (data == "NEGATIVE")  {
     color = "#FF0000";
+    $(f).addClass("flagged");
   }
   console.log( );
   // elem.appendChild(createButtonElement());
   const imgUrl = (chrome.runtime.getURL('img/logo.png'));
-  const sp = $("<span>", {"class": "aus"});
+  // const sp = $("<span>", {id: idx, "class": "aus"});
+  // const link = $("<a>").append(sp);
+
+
   // .css({
   //   "height": "20px",
   //   "width": "20px",
@@ -52,12 +67,33 @@ getSentiment(txt)
   // const img = $("<img> </img>");
   // img.attr('src', "imgUrl");
   // sp.append(img);
-  $(f[0]).parent().append(sp);
-  $(elem).css({
-    "border-color": color,
-    "border-width": "2px",
-    "border-style": "solid"
-  });
+  // $(f[0]).parent().append(sp);
+
+  // $( "a" ).on( "click",".aus", function(e) {
+  //   console.log( $( this ) );
+  //   // e.stopPropagation();
+  // });
+
+
+//   $(f[0]).delegate('span#'+idx,'click',function() {
+//     // your code here ...
+//     alert(txt);
+// });
+
+
+  // var log = document.getElementById(idx);
+  // log.addEventListener('click', function() {
+  //   alert(txt);
+  // }, true);
+  // sp.click(function(){
+  //   // $("h2").html("<p class='test'>click me</p>")
+  //   alert(txt);
+  // });  
+  // $(elem).css({
+  //   "border-color": color,
+  //   "border-width": "2px",
+  //   "border-style": "solid"
+  // });
   
 
   console.log("extention", "text", txt);

@@ -1,3 +1,8 @@
+.flagged  {
+  text-decoration: line-through;
+  color: red !important;
+}
+
 .aus  {
   height: 80px;
   width: 80px;
