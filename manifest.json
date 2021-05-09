@@ -4,12 +4,13 @@
     "host_permissions": [
         "*://*.amazonaws.com/*"
       ],
+      
     "version": "1.0",
     "manifest_version": 3,
     "content_scripts": [
         {
             "matches": ["https://*.twitter.com/*"],
-            "js": ["jquery-3.6.0.slim.min.js", "content.js"]
+            "js": ["jquery-3.6.0.slim.min.js","content.js", "twitter.js"]
         },
         {
             "matches": ["https://*.facebook.com/*"],
@@ -18,7 +19,16 @@
     ],
     "action": {
         "default_popup": "popup.html",
-        "defaut_title": "ActivateSentimentAnalysis"
-    }
+        "defaut_title": "ActivateSentimentAnalysis",
+        "default_icon": "img/img.jpg"
+    },
+    "background": {
+        "service_worker": "background.js"
+      },
+      "permissions": [
+        "tabs",
+        "storage"
+        ,"contextMenus"
+      ]
 
 }
