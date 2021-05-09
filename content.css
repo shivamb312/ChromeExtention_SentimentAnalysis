@@ -1,6 +1,10 @@
 .flagged  {
   text-decoration: line-through;
-  color: red !important;
+  color: #e62563 !important;
+}
+
+.greenc  {
+  color: #00ff7e !important;
 }
 
 .aus  {

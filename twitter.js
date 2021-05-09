@@ -45,6 +45,7 @@ getSentiment(txt)
   let idx = makeid(7);
   if (data == "POSITIVE") {
     color = "#00FF00";
+    $(f).addClass("greenc");
   }
   else if (data == "NEGATIVE")  {
     color = "#FF0000";

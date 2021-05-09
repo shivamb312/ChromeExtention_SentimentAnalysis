@@ -5,7 +5,7 @@
         "*://*.amazonaws.com/*"
       ],
       
-    "version": "1.0",
+    "version": "0.1",
     "manifest_version": 3,
     "content_scripts": [
         {
@@ -35,7 +35,11 @@
         "tabs",
         "storage"
         ,"contextMenus"
-      ]
+      ],
+      "icons": {
+          "128": "img/logo-2.png"
+      }
+
 
 
 }
